@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Detection using ML</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <!-- Title Bar -->
+    <div class="title-bar">
+        <h1>Lung and Colon Cancer Classification from Histopathological Image using Machine Learning</h1>
+    </div>
+
+    <div class="motivation">
+        <p>
+            Model Details:<br> Trained on : 20000 images<br>
+            Validation on : 2500 images<br>
+            Test on : 2500 images<br>
+            Accuracy : 99.08%<br>
+        <br>
+        <br>
+            WARNING: This model is for ACADEMIC PURPOSES ONLY and is intended to assist in the analysis of histopathological images for lung and colon cancer classification.
+            It is NOT intended for diagnostic use. This model may not be accurate in all cases, and its performance can vary depending on the quality and characteristics of the input images.
+            </p>
+    </div>
+
+    <div class="container">
+        <p>System Developed by : Team_Encrypted</p>
+        <form action="/" method="POST" enctype="multipart/form-data" class="upload-form">
+            <label for="file">Upload a histopathologic Image to Predict:</label>
+            <input type="file" name="file" id="file" required>
+            <button type="submit">Upload and Predict</button>
+        </form>
+
+        {% if uploaded_image %}
+        <div class="result-card">
+            <div class="image-section">
+                <h2>Uploaded Image:</h2>
+                <img src="{{ url_for('static', filename='uploads/' + uploaded_image) }}" alt="Uploaded Image">
+                <p><strong>File Name:</strong> {{ uploaded_image }}</p>
+            </div>
+            <div class="prediction-section">
+                <h2>Prediction:</h2>
+                <p>{{ prediction }}</p>
+                <a href="/" class="try-again-button">Try Again</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
