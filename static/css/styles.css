@@ -1,0 +1,244 @@
+/* Title bar styling */
+.title-bar {
+    width: 100%; /* Full width */
+    background: #1c1f2b;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    margin-top: -10px;
+    position: relative; /* Fix the title bar at the top */
+    top: 0;
+    border-radius: 10px;
+}
+
+.title-bar h1 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    color: #f0f0f0;
+}
+
+.motivation p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    color: #f0f0f0;
+    padding: 10px 20px;
+    margin-bottom: 22px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Reset and global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+    color: #f0f0f0;
+}
+
+/* Ensure the body stacks elements vertically */
+body {
+    min-height: 100vh;
+    background: #0b0d15;
+    color: #a2a5b3;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px; /* Add padding for responsiveness */
+}
+
+/* Heading styling */
+h1 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Container styling with glowing animation */
+.container {
+    margin: 0 auto;
+    padding: 2em;
+    width: 600px;
+    background: #1c1f2b;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Glowing border animation for the container */
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.container::after,
+.container::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+
+.container::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+/* Form styling */
+form.upload-form {
+    margin: 20px 0;
+}
+
+label {
+    font-size: 16px;
+    color: #a2a5b3;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="file"] {
+    margin: 10px 0;
+    padding: 8px;
+    font-size: 14px;    
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #2a2d3e;
+    color: #f0f0f0;
+    transition: box-shadow 0.3s ease;
+}
+
+input[type="file"]:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Button styling */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Result card styling with glowing animation */
+.result-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2a2d3e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Glowing border animation for the result card */
+.result-card::after,
+.result-card::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    animation: 3s spin linear infinite;
+}
+
+.result-card::before {
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
+
+/* Image section styling */
+.image-section {
+    flex: 1;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Prediction section styling */
+.prediction-section {
+    flex: 1;
+    text-align: center;
+}
+
+.prediction-section p {
+    font-size: 18px;
+    color: #f0f0f0;
+    margin-top: 10px;
+}
+
+/* Try Again button styling */
+.try-again-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff4545;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.try-again-button:hover {
+    background-color: #d12f2f;
+    transform: scale(1.05);
+}
+
+.try-again-button:active {
+    transform: scale(0.95);
+}
